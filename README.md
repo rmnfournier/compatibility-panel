@@ -12,7 +12,13 @@ conda install conda-forge::pyvcf
 
 You can then clone the current repository, and install the package:
 
-```
+```bash
 pip install -e .
 ```
 
+## Parsing the imputed VCF files
+snp-bias provides an entry point to gather the read counts from VCF files that contain the read count information.
+
+```bash
+parse-vcf --vcf chr22.vcf.gz --out count_chr_22.csv --ind genetic_ids.txt
+```
