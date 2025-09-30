@@ -22,3 +22,13 @@ snp-bias provides an entry point to gather the read counts from VCF files that c
 ```bash
 parse-vcf --vcf chr22.vcf.gz --out count_chr_22.csv --ind genetic_ids.txt
 ```
+
+## Annotating SNPs
+You can then annotate SNPs using a class inheriting from `Annotator` class. Several implementations are provided in the `snpbias.annotation` module.
+
+We also provide a command line interface to annotate SNPs.
+
+```bash
+annotate-snps --input count_chr_22.csv --output annotated_count_chr_22.csv --method freq
+```
+
