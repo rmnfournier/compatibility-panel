@@ -34,3 +34,4 @@ annotate-snp --input count_chr_22.csv --out annotated_freq_chr_22.csv --method f
 Where --method is one of:
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies
 - chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies
+- bayes: Perform a Bayesian analysis on the contingency table of alt and ref reads across multiple technologies
