@@ -20,4 +20,4 @@ class BayesAnnotator(Chi2Annotator):
     def p_data_invert(self, contingency_table):
         contingency_table = np.array(contingency_table)
         p_data_invert = np.prod(np.sum(contingency_table, axis=1) - self.pseudo_count * contingency_table.shape[1])
-        return p_data_invert 
+        return p_data_invert

@@ -22,7 +22,7 @@ class Chi2Annotator(Annotator):
             ref_count = row[f"all_reads_{tech}"] - alt_count
             table.append([alt_count + pseudocount, ref_count + pseudocount])
         return table
-    
+
     def chi2_test(self, table):
         if any(sum(row) == 0 for row in table) or any(sum(col) == 0 for col in zip(*table)):
             return 0, 1
