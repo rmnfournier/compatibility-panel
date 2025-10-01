@@ -5,8 +5,6 @@ from scipy.stats import chi2_contingency
 class Chi2Annotator(Annotator):
     def __init__(self, df):
         super().__init__(df)
-        if len(self.technologies) != 2:
-            raise ValueError("The Chi2Annotator requires exactly two technologies.")
 
     def compute_score(self, row):
         contingency_table = self.build_contingency_table(row)
