@@ -29,6 +29,8 @@ You can then annotate SNPs using a class inheriting from `Annotator` class. Seve
 We also provide a command line interface to annotate SNPs.
 
 ```bash
-annotate-snps --input count_chr_22.csv --output annotated_count_chr_22.csv --method freq
+annotate-snp --input count_chr_22.csv --out annotated_freq_chr_22.csv --method freq
 ```
-
+Where --method is one of:
+- freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies
+- chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies
