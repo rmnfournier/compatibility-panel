@@ -35,3 +35,11 @@ Where --method is one of:
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies
 - chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies
 - bayes: Perform a Bayesian analysis on the contingency table of alt and ref reads across multiple technologies
+
+## Summarizing results
+Finally, you can summarize the results and keep a certain quantile of SNPs with the highest scores.
+
+```bash
+summarize-results --snp_file count_chr_22.csv --annotations annotated_freq_chr_@.txt --method freq --quantile 0.01 --out top_1_percent_snps.txt --out2 discarded_snps.txt
+```
+Where `--snp_file` is the original SNP file used for annotation, `--annotations` is the annotated SNP file with '@' used as a placeholder in case the annotations are split across multiple files, `--method` is the method used for annotation, `--quantile` is the quantile of SNPs to keep, `--out` is the output file for the top SNPs, and `--out2` is an optional output file for the discarded SNPs.
