@@ -37,7 +37,7 @@ Where --method is one of:
 - bayes: Perform a Bayesian analysis on the contingency table of alt and ref reads across multiple technologies
 
 ## Summarizing results
-Finally, you can summarize the results and keep a certain quantile of SNPs with the highest scores.
+Finally, you can summarize the results and keep a certain quantile of SNPs with the best scores (which can be the highest or the lowest depending on the method used).
 
 ```bash
 summarize-results --snp_file count_chr_22.csv --annotations annotated_freq_chr_@.txt --method freq --quantile 0.01 --out top_1_percent_snps.txt --out2 discarded_snps.txt
