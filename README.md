@@ -40,6 +40,12 @@ Where --method is one of:
 Finally, you can summarize the results and keep a certain quantile of SNPs with the best scores (which can be the highest or the lowest depending on the method used).
 
 ```bash
-summarize-results --snp_file count_chr_22.csv --annotations annotated_freq_chr_@.txt --method freq --quantile 0.01 --out top_1_percent_snps.txt --out2 discarded_snps.txt
+summarize-results --snp_file v64.snp --annotations annotated_freq_chr_@.txt --method freq --quantile 0.01 --out top_1_percent_snps.txt --out2 discarded_snps.txt
 ```
-Where `--snp_file` is the original SNP file used for annotation, `--annotations` is the annotated SNP file with '@' used as a placeholder in case the annotations are split across multiple files, `--method` is the method used for annotation, `--quantile` is the quantile of SNPs to keep, `--out` is the output file for the top SNPs, and `--out2` is an optional output file for the discarded SNPs.
+Where:
+1. `--snp_file` a SNP file with 6 tab-separated columns: snp_name, chr, gen_map(optional, can be set to .), position, ref (optional, can be set to .), alt (optional, can be set to.)
+2. `--annotations` is the annotated SNP file with '@' used as a placeholder in case the annotations are split across multiple files, 
+3. `--method` is the method used for annotation,
+4. `--quantile` is the quantile of SNPs to keep
+5. `--out` is the output file for the top SNPs
+6. `--out2` is an optional output file for the discarded SNPs.
