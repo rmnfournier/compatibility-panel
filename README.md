@@ -20,8 +20,18 @@ pip install -e .
 snp-bias provides an entry point to gather the read counts from VCF files that contain the read count information.
 
 ```bash
-parse-vcf --vcf chr22.vcf.gz --out count_chr_22.csv --ind genetic_ids.txt
+parse-vcf --vcf chr1.vcf.gz --out count_chr_1.csv --ind genetic_ids.txt
 ```
+
+Alternatively, you can manually create the count files. The output file should be a CSV file with the following columns:
+```csv
+chr,pos,ref,alt,all_reads_AG,alt_reads_AG,all_reads_SG,alt_reads_SG
+1,752566,G,A,65,35,744,372
+1,776546,A,G,55,30,493,264
+...
+```
+where 
+all_reads_X is the total number of reads covering the SNP for technology X for individuals heterozygous at the SNP. 
 
 ## Annotating SNPs
 You can then annotate SNPs using a class inheriting from `Annotator` class. Several implementations are provided in the `snpbias.annotation` module.
@@ -29,7 +39,7 @@ You can then annotate SNPs using a class inheriting from `Annotator` class. Seve
 We also provide a command line interface to annotate SNPs.
 
 ```bash
-annotate-snp --input count_chr_22.csv --out annotated_freq_chr_22.csv --method freq
+annotate-snp --input count_chr_1.csv --out annotated_freq_chr_1.csv --method freq
 ```
 Where --method is one of:
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies
