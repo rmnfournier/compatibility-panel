@@ -55,6 +55,7 @@ chr,pos,ref,alt,all_reads_AG,alt_reads_AG,all_reads_SG,alt_reads_SG
 ```
 where 
 all_reads_X is the total number of reads covering the SNP for technology X for individuals heterozygous at the SNP. 
+There can be as many technologies as needed.
 
 ## Annotating SNPs
 You can then annotate SNPs using a class inheriting from `Annotator` class. Several implementations are provided in the `snpbias.annotation` module.
