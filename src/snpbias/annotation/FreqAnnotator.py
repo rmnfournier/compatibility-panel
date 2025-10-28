@@ -2,8 +2,8 @@ from snpbias.annotation.Annotator import Annotator
 
 
 class FreqAnnotator(Annotator):
-    def __init__(self, df):
-        super().__init__(df)
+    def __init__(self, df, technologies=None):
+        super().__init__(df, technologies=technologies)
         if len(self.technologies) != 2:
             raise ValueError("The FreqAnnotator requires exactly two technologies.")
 

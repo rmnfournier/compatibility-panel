@@ -4,8 +4,8 @@ import numpy as np
 
 
 class BayesAnnotator(Chi2Annotator):
-    def __init__(self, df):
-        super().__init__(df)
+    def __init__(self, df, technologies=None):
+        super().__init__(df, technologies=technologies)
         self.pseudo_count = 1
 
     def compute_score(self, row):

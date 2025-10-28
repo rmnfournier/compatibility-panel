@@ -11,6 +11,8 @@ def get_arguments():
     parser.add_argument('--out', type=str, help='Output file', required=True)
     parser.add_argument('--method', type=str, choices=['freq', 'chi2', 'bayes'], required=True,
                         help='Annotation method to use')
+    parser.add_argument('--techs', nargs='*', default=None,
+                        help='Optional list of technologies to use (e.g. --techs AG SG)')
     args = parser.parse_args()
     return args
 
@@ -18,11 +20,11 @@ def get_arguments():
 def get_snp_annotator(args):
     df = pd.read_csv(args.input, sep=',')
     if args.method == 'freq':
-        annotator = FreqAnnotator(df)
+        annotator = FreqAnnotator(df, technologies=args.techs)
     elif args.method == 'chi2':
-        annotator = Chi2Annotator(df)
+        annotator = Chi2Annotator(df, technologies=args.techs)
     elif args.method == 'bayes':
-        annotator = BayesAnnotator(df)
+        annotator = BayesAnnotator(df, technologies=args.techs)
     return annotator
 
 

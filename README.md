@@ -63,12 +63,14 @@ You can then annotate SNPs using a class inheriting from `Annotator` class. Seve
 We also provide a command line interface to annotate SNPs.
 
 ```bash
-annotate-snp --input count_chr_1.csv --out annotated_freq_chr_1.csv --method freq
+annotate-snp --input count_chr_1.csv --out annotated_freq_chr_1.csv --method chi2 --techs ag sg
 ```
 Where --method is one of:
 - chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies (used in the preprint)
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies (see Rohland et al.)
 - bayes: Perform a Bayesian analysis on the contingency table of alt and ref reads across multiple technologies
+
+The optional `--techs` flag lets you provide the technologies present in the input file (for example `--techs AG SG`). When omitted, the annotator automatically infers all technologies by looking for `all_reads_*` columns.
 
 ## Summarizing results
 Finally, you can summarize the results and keep a certain quantile of SNPs with the best scores (which can be the highest or the lowest depending on the method used).

@@ -4,8 +4,8 @@ from scipy.stats import PermutationMethod
 
 
 class Chi2Annotator(Annotator):
-    def __init__(self, df):
-        super().__init__(df)
+    def __init__(self, df, technologies=None):
+        super().__init__(df, technologies=technologies)
 
     def compute_score(self, row):
         contingency_table = self.build_contingency_table(row)
