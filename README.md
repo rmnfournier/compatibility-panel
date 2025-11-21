@@ -69,6 +69,7 @@ Where --method is one of:
 - chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies (used in the preprint)
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies (see Rohland et al.)
 - chi2_prior: Adds a prior weighting SNPs with more reads
+- bayes_factor: Calculates the Bayes Factor for assessing consistency of allelic fraction estimates across different sequencing technologies. Bayes factor is calculated as ln(Consistent) - ln(Inconsistent), so higher scores means SNPs should be kept.
 
 The optional `--techs` flag lets you provide the technologies present in the input file (for example `--techs AG SG`). When omitted, the annotator automatically infers all technologies by looking for `all_reads_*` columns.
 
