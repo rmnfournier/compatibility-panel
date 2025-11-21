@@ -68,7 +68,7 @@ annotate-snp --input count_chr_1.csv --out annotated_freq_chr_1.csv --method chi
 Where --method is one of:
 - chi2: Perform a Chi-squared test on the contingency table of alt and ref reads across multiple technologies (used in the preprint)
 - freq: Calculate the absolute difference in ratios of alt reads to total reads between a single pair of technologies (see Rohland et al.)
-- bayes: Perform a Bayesian analysis on the contingency table of alt and ref reads across multiple technologies
+- chi2_prior: Adds a prior weighting SNPs with more reads
 
 The optional `--techs` flag lets you provide the technologies present in the input file (for example `--techs AG SG`). When omitted, the annotator automatically infers all technologies by looking for `all_reads_*` columns.
 

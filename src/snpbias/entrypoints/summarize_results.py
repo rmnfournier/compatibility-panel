@@ -19,7 +19,7 @@ def get_arguments():
                         help="The proportion of SNPs to keep")
     parser.add_argument('--out', type=str, help='Output file for snps to keep', required=True)
     parser.add_argument('--out2', type=str, help='Output file for snps to discard', required=False, default=None)
-    parser.add_argument('--method', type=str, choices=['freq', 'chi2', 'bayes'], required=True,
+    parser.add_argument('--method', type=str, choices=['freq', 'chi2', 'chi2_prior'], required=True,
                         help='Annotation method used for the annotation.')
 
     args = parser.parse_args()
@@ -33,7 +33,7 @@ def get_method_score_direction(method):
     score_direction = {
         "freq": 'inverted',
         "chi2": 'default',
-        "bayes": 'default'
+        "chi2_prior": 'default'
     }
     if method not in score_direction:
         valid_methods = ", ".join(score_direction.keys())
