@@ -3,7 +3,7 @@ from scipy.stats import chi2
 import numpy as np
 
 
-class Chi2_prior(Chi2Annotator):
+class Chi2PriorAnnotator(Chi2Annotator):
     def __init__(self, df, technologies=None):
         super().__init__(df, technologies=technologies)
         self.pseudo_count = 1

@@ -1,8 +1,8 @@
 import argparse
 from snpbias.annotation.FreqAnnotator import FreqAnnotator
 from snpbias.annotation.Chi2Annotator import Chi2Annotator
-from snpbias.annotation.Chi2_prior import Chi2_prior
-from snpbias.annotation.BayesFactor import BayesFactor
+from snpbias.annotation.Chi2PriorAnnotator import Chi2PriorAnnotator
+from snpbias.annotation.BayesFactorAnnotator import BayesFactorAnnotator
 import pandas as pd
 
 
@@ -25,9 +25,9 @@ def get_snp_annotator(args):
     elif args.method == 'chi2':
         annotator = Chi2Annotator(df, technologies=args.techs)
     elif args.method == 'chi2_prior':
-        annotator = Chi2_prior(df, technologies=args.techs)
+        annotator = Chi2PriorAnnotator(df, technologies=args.techs)
     elif args.method == 'bayes_factor':
-        annotator = BayesFactor(df, technologies=args.techs)
+        annotator = BayesFactorAnnotator(df, technologies=args.techs)
     return annotator
 
 

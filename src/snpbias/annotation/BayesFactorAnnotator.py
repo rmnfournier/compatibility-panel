@@ -3,7 +3,7 @@ from scipy.special import betaln
 import numpy as np
 
 
-class BayesFactor(Chi2Annotator):
+class BayesFactorAnnotator(Chi2Annotator):
     def __init__(self, df, technologies=None):
         super().__init__(df, technologies=technologies)
         self.alpha = 2
