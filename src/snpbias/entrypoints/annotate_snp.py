@@ -1,7 +1,8 @@
 import argparse
 from snpbias.annotation.FreqAnnotator import FreqAnnotator
 from snpbias.annotation.Chi2Annotator import Chi2Annotator
-from snpbias.annotation.BayesAnnotator import BayesAnnotator
+from snpbias.annotation.Chi2PriorAnnotator import Chi2PriorAnnotator
+from snpbias.annotation.BayesFactorAnnotator import BayesFactorAnnotator
 import pandas as pd
 
 
@@ -9,7 +10,7 @@ def get_arguments():
     parser = argparse.ArgumentParser(description="Calculate SNP bias annotations from count data")
     parser.add_argument('--input', type=str, help='Input file with count data by technology', required=True)
     parser.add_argument('--out', type=str, help='Output file', required=True)
-    parser.add_argument('--method', type=str, choices=['freq', 'chi2', 'bayes'], required=True,
+    parser.add_argument('--method', type=str, choices=['freq', 'chi2', 'chi2_prior', 'bayes_factor'], required=True,
                         help='Annotation method to use')
     parser.add_argument('--techs', nargs='*', default=None,
                         help='Optional list of technologies to use (e.g. --techs AG SG)')
@@ -23,8 +24,10 @@ def get_snp_annotator(args):
         annotator = FreqAnnotator(df, technologies=args.techs)
     elif args.method == 'chi2':
         annotator = Chi2Annotator(df, technologies=args.techs)
-    elif args.method == 'bayes':
-        annotator = BayesAnnotator(df, technologies=args.techs)
+    elif args.method == 'chi2_prior':
+        annotator = Chi2PriorAnnotator(df, technologies=args.techs)
+    elif args.method == 'bayes_factor':
+        annotator = BayesFactorAnnotator(df, technologies=args.techs)
     return annotator
 
 
